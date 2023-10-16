@@ -41,4 +41,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function copings()
+    {
+        return $this->hasMany(Coping::class);
+    }
+    
+    public function practices()
+    {
+        return $this->hasMany(Practice::class);
+    }
+    
+    public function myActions(){
+        return $this->belongsToMany(Coping::class, 'my_actions', 'user_id', 'coping_id');
+    }
+    
+    /**
+     * このユーザに関係するモデルの件数をロードする。
+     */
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('copings');
+        $this->loadCount('practices');
+        $this->loadCount('my_actions');
+    }
 }

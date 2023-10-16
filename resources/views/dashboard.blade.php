@@ -1,17 +1,23 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+@section('content')
+
+<div class="md:grid md:grid-cols-9 md:gap-4">
+    <div class="col-span-6">
+        <h2>プラクティス登録</h2>
+        @include('practices.form')
+        <h2>みんなのプラクティス</h2>
+        @include('practices.practices', ['practices'=>$practices])
     </div>
-</x-app-layout>
+    <div class="col-span-3">
+{{--        <h2>アクション登録</h2>
+        @include('copings.form')
+--}}
+        <h2>マイアクション</h2>
+        @include('copings.copings', ['copings'=>$mycopes])
+        <h2>新着アクション</h2>
+        @include('copings.copings', ['copings'=>$copings])
+    </div>
+</div>
+
+@endsection
