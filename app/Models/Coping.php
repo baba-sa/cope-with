@@ -13,6 +13,7 @@ class Coping extends Model
         'action',
         'user_id',
         'is_public',
+        'genre_id',
     ];
     
     public function user()

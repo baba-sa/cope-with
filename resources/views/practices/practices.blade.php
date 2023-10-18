@@ -16,7 +16,7 @@
                 <div>
                 <a href="{{ route('users.show', $practice->user_id) }}">{{$practice->user->name}}</a>
                 さんが
-                <a class="link" href="{{ route('users.show', $practice->coping_id) }}">{{ $practice->coping->action }}</a>
+                <a class="link" href="{{ route('copings.show', $practice->coping_id) }}">{{ $practice->coping->action }}</a>
                 を実施しました。
                 </div>
                 <div>{{ $practice->comment }}</div>

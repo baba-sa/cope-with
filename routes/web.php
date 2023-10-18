@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CopingsController;
 use App\Http\Controllers\PracticesController;
+use App\Http\Controllers\MyActionsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,15 +18,7 @@ use App\Http\Controllers\PracticesController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-*/
 Route::get('/', [PracticesController::class, 'index']);
 
 Route::get('/dashboard', [PracticesController::class, 'index'])->middleware(['auth'])->name('dashboard');
@@ -41,4 +35,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UsersController::class, ['only' => ['index', 'show']]);
     Route::resource('copings', CopingsController::class, ['only' => ['index', 'show', 'create', 'store']]);
     Route::resource('practices', PracticesController::class, ['only' => ['index', 'show', 'store', 'destroy']]);
+
+    Route::group(['prefix' => 'copings/{id}'], function () {
+        Route::post('my_action', [MyActionsController::class, 'store'])->name('my_action.add');
+        Route::delete('my_action', [MyActionsController::class, 'destroy'])->name('my_action.remove'); 
+    });
+    
 });
+

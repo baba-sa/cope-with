@@ -13,7 +13,7 @@
                     @include('commons.navbar')
         </div>
 
-        <div class="container mx-auto">
+        <div class="container mx-auto ">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
 

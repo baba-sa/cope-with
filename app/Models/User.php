@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Coping::class, 'my_actions', 'user_id', 'coping_id');
     }
     
+    public function isMyAction($coping_id){
+        return $this->myActions()->where('coping_id', $coping_id)->exists();
+    }
+    
     /**
      * このユーザに関係するモデルの件数をロードする。
      */
