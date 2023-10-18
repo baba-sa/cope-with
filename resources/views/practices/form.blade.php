@@ -1,8 +1,9 @@
-<div class="mt-4 mb-4">
+<div class="m-4 p-4 bg-white">
     <form method="POST" action="{{ route('practices.store') }}">
         @csrf
         <div>
             <div>
+                <label>アクション：</label>
                 <select name='coping_id'>
                 @foreach($copings as $coping)
                     <option value="{{ $coping->id }}">{{ $coping->action }}</option>
@@ -10,7 +11,8 @@
                 </select>
             </div>
             <div>
-                <textarea name='comment'></textarea>
+                <label>コメント：</label>
+                <textarea class="w-1/2 rounded-sm border-solid" name='comment'></textarea>
             </div>
         </div>
         

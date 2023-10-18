@@ -39,6 +39,6 @@ require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UsersController::class, ['only' => ['index', 'show']]);
-    Route::resource('copings', CopingsController::class, ['only' => ['index', 'show', 'store']]);
+    Route::resource('copings', CopingsController::class, ['only' => ['index', 'show', 'create', 'store']]);
     Route::resource('practices', PracticesController::class, ['only' => ['index', 'show', 'store', 'destroy']]);
 });

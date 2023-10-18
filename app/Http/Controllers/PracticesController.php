@@ -13,9 +13,13 @@ class PracticesController extends Controller
     //
     public function index(){
         
-        $practices = Practice::all();
-        $copings = Coping::all();
-        $mycopes = \Auth::user()->myActions()->get();
+        $copings = Coping::where('is_public','1')->orderBy('id', 'desc')->get();
+        $copeids = $copings->pluck('id')->toArray();
+        $practices = Practice::whereIn('coping_id', $copeids)->orderBy('id', 'desc')->get();
+        $mycopes = [];
+        if(\Auth::check()){
+            $mycopes = \Auth::user()->myActions()->get();
+        }
         
         return view('dashboard', [
             'practices'=>$practices, 

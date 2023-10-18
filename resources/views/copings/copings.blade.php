@@ -1,9 +1,11 @@
 <div>
     @if(isset($copings))
-    <ul>
+    <ul class="flex flex-wrap">
+        
         @foreach($copings as $coping)
-        <li>
-            <a href="{{ route('copings.show', $coping->id) }}">{{ $coping->action }}</a>
+        <div class="rounded-xl bg-white m-4 p-2 ">
+            <li><a href="{{ route('copings.show', $coping->id) }}">{{ $coping->action }}</a>
+        </div>
         @endforeach
     </ul>
     @endif

@@ -1,23 +1,29 @@
-<div class="mt-4 mb-4">
+<div class="m-4 bg-white">
     @if(isset($practices))
     <table class="table">
-        <tr>
-            <th>ユーザ</th>
-            <th>コメント</th>
-            <th>アクション</th>
-        </tr>
         @foreach($practices as $practice)
         <tr>
-            <td>
-                <div class="avatar">
-                    <div class="w-12 rounded">
-                        <img src="{{ Gravatar::get($practice->user->email) }}" alt="" />
+            <td class="w-16">
+                <aside>
+                    <div class="avatar">
+                        <div class="w-12 rounded">
+                            <img src="{{ Gravatar::get($practice->user->email) }}" alt="" />
+                        </div>
                     </div>
-                </div>
-                <a href="{{ route('users.show', $practice->user_id) }}">{{$practice->user->name}}</a>
+                </aside>
             </td>
-            <td>{{ $practice->comment }}</td>
-            <td><a href="{{ route('users.show', $practice->coping_id) }}">{{ $practice->coping_id }}</-a></td>
+            <td class="">
+                <div>
+                <a href="{{ route('users.show', $practice->user_id) }}">{{$practice->user->name}}</a>
+                さんが
+                <a class="link" href="{{ route('users.show', $practice->coping_id) }}">{{ $practice->coping->action }}</a>
+                を実施しました。
+                </div>
+                <div>{{ $practice->comment }}</div>
+            </td>
+            <td>
+                <div>{{ $practice->created_at }}</div>
+            </td>
         </tr>
         @endforeach
     </table>

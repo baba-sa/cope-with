@@ -12,6 +12,7 @@ class Coping extends Model
     protected $fillable = [
         'action',
         'user_id',
+        'is_public',
     ];
     
     public function user()
@@ -22,5 +23,10 @@ class Coping extends Model
     public function practices()
     {
         return $this->hasMany(Practice::class);
+    }
+    
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'my_actions', 'coping_id', 'user_id');
     }
 }

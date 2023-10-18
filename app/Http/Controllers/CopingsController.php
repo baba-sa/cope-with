@@ -11,7 +11,7 @@ class CopingsController extends Controller
     //
     public function index(){
         
-        $copings = Coping::orderBy('craeted_at', 'desc')->pagenate(10);
+        $copings = Coping->where('is_public','1')->get();
         
         return view ('dashboard', [
             'copings' => $copings,
@@ -19,16 +19,32 @@ class CopingsController extends Controller
         
     }
     
+    public function create(){
+        
+        if(\Auth::check()){
+            return view('copings.create');
+            
+        }else{
+            return view('auth.login');
+            
+        }
+    }
+    
     public function store(Request $request){
         
+        $user_id = \Auth::id();
+        
         $coping = new Coping([
-            'user_id' => \Auth::id(),
+            'user_id' => $user_id,
             'action' => $request->action,
+            'is_public' => isset($request->is_public),
         ]);
         
         $coping->save();
         
-        return back();
+        $coping->users()->attach($user_id);
+        
+        return redirect('dashboard');
         
     }
     

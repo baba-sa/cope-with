@@ -15,8 +15,8 @@ class UsersController extends Controller
         
         $user = User::findOrFail($id);
         
-        $copings = $user->copings()->get();
-        $practices = $user->practices()->get();
+        $copings = $user->myActions()->get();
+        $practices = $user->practices()->orderBy('id', 'desc')->get();
         
         return view('users.show', [
             'user' => $user,

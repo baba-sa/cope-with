@@ -20,7 +20,7 @@ class Practice extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function copings()
+    public function coping()
     {
         return $this->belongsTo(Coping::class);
     }
