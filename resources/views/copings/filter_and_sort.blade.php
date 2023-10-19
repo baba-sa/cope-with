@@ -15,15 +15,7 @@
             </div>
             
             <div class="inline-flex p-4 form-control">
-                <label class="label">
-                    <span class="label-text">ジャンル</span>
-                </label>
-                <select name="created_by" class="select select-bordered select-sm w-full max-w-xs">
-                    <option disabled selected>----</option>
-                    @foreach( $genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->genre }}</option>
-                    @endforeach
-                </select>
+                @include('genres.select_genre')
             </div>
             
             <div class="divider divider-horizontal m-4"></div>

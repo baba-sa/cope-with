@@ -8,13 +8,8 @@
             <label>アクション：</label>
             <textarea name='action' class="input input-bordered"></textarea>
         </div>
-        <div class="form-control rounded-lg m-4 p-4 bg-white">
-            <select name="genre_id" class="select select-bordered w-full max-w-xs">
-                <option disabled selected>ジャンル</option>
-                @foreach( $genres as $genre)
-                <option value="{{$genre->id}}">{{ $genre->genre }}</option>
-                @endforeach
-            </select>
+        <div class="rounded-lg m-4 p-4 bg-white">
+            @include('genres.select_genre')
         </div>
         <div class="form-control rounded-lg m-4 p-4 bg-white">
             <label>全体公開しますか？　</label>

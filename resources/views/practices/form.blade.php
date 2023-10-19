@@ -3,16 +3,23 @@
         @csrf
         <div>
             <div>
-                <label>アクション：</label>
-                <select name='coping_id'>
+                @include('genres.select_genre')
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">アクション</span>
+                </label>
+                <select class="select select-bordered" name='coping_id'>
                 @foreach($copings as $coping)
                     <option value="{{ $coping->id }}">{{ $coping->action }}</option>
                 @endforeach
                 </select>
             </div>
-            <div>
-                <label>コメント：</label>
-                <textarea class="w-1/2 rounded-sm border-solid" name='comment'></textarea>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">コメント</span>
+                </label>
+                <textarea class="textarea textarea-bordered" name='comment'></textarea>
             </div>
         </div>
         

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
+use App\Models\User;
+use App\Models\Profile;
+
 class ProfileController extends Controller
 {
     /**
@@ -20,41 +23,24 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
-
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    
+    public function update(Request $request)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $id = $request->user()->profile->id;
+        
+        $profile = Profile::findOrFail($id);
+        
+        $path = null;
+        if ($request->hasFile('user_icon')) {
+            $path = $request->file('user_icon')->store('profile-icons', 'public');
         }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        
+        $profile->icon_path = $path;
+        $profile->profile_comment = $request->user_bio;
+            
+        if($profile->save()){
+            return redirect()->back();
+        }
+        
     }
 }

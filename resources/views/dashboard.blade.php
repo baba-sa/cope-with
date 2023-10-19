@@ -36,7 +36,7 @@
             <div class="collapse-content">
             @include('copings.copings', ['copings'=>$mycopes])
             </div>
-            @endif
+        @endif
         </div>
         <div class="collapse collapse-arrow">
             <input type="checkbox" name="my-accordion-1" checked="checked" />
