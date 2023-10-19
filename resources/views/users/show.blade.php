@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="flex bg-gray-50 mt-12">
-    <div class="m-4 p-4 w-72">
+    <div class="m-4 p-4 w-84">
         @include('users.card', ['user'=> $user, ])
     </div>
     <div class="m-4 p-4">

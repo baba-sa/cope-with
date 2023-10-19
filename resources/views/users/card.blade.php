@@ -2,18 +2,24 @@
     <div class="card-body bg-base-200 text-4xl">
         <h2 class="card-title">{{ $user->name }}</h2>
     </div>
-    <figure>
-        @if($user->profile->icon_path)
-        <src="storage/{{$user->profile->icon_path}}" alt="{{$user->name}}さんのアイコン" />
-        @else
-        <src="storage/images/fantasy_ocean_kraken.png" alt="クラーケン" />
-        @endif
-    </figure>
-    <div class="card-body bg-white ">
-        <p>{{ $user->name }}さんの自己紹介</p>
-        <p>{{ $user->profile->profile_comment }}</p>
+    <div class="card-body bg-white">
+        <div>
+            <label class="label-text">{{ $user->name }}さんの自己紹介</label>
+        </div>
+        <div  class="chat chat-start">
+            <div class="chat-image avatar">
+                <div class="w-20 rounded-full">
+                    @if($user->profile->icon_path)
+                    <img src="/storage/{{$user->profile->icon_path}}" alt="{{$user->name}}さんのアイコン" >
+                    @else
+                    <img src="/storage/images/fantasy_ocean_kraken.png" alt="クラーケン" >
+                    @endif
+                </div>
+            </div>
+        
+            <div class="chat-bubble bg-gray-50 text-gray-800">{{ $user->profile->profile_comment }}</div>
+        </div>
     </div>
-    
     <div class="">
         @if($user->id===Auth::id())
         <form action="{{ route('profile.edit') }}">

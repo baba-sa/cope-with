@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    <image src="storage/images/FBPAKU3308_TP_V.jpg"></image>
-</div>
-<div class="md:grid md:grid-cols-9 md:gap-4 mb-12">
+<div class="md:grid md:grid-cols-9 md:gap-4 my-20">
     <div class="col-span-6 bg-gray-50">
         <div class="collapse collapse-arrow">
             <input type="checkbox" name="my-accordion-1" checked="checked" />

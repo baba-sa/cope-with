@@ -1,16 +1,16 @@
-<div class="m-4 bg-white">
+<div class="mx-4 p-4 bg-white">
     @if(isset($practices))
-    <table class="table">
+    <ul>
         @foreach($practices as $practice)
-        <tr>
+        <li>
             <td class="">
                 <div class="chat chat-start">
                     <div class="chat-image avatar">
-                        <div class="w-12 rounded-full">
+                        <div class="w-16 rounded-full">
                             @if($practice->user->profile->icon_path)
-                            <img src="storage/{{$practice->user->profile->icon_path}}" alt="" />
+                            <img src="/storage/{{$practice->user->profile->icon_path}}" alt="" />
                             @else
-                            <img src="storage/images/fantasy_ocean_kraken.png" alt="" />
+                            <img src="/storage/images/fantasy_ocean_kraken.png" alt="" />
                             @endif
                         </div>
                     </div>
@@ -21,14 +21,14 @@
                         を実施しました。
                     </div>
                     <div class="chat-bubble bg-yellow-50 text-gray-800">{{ $practice->comment }}</div>
+                    <div class="chat-footer opacity-50 text-right">
+                        {{ $practice->created_at }}
+                    </div>
                 </div>
-            </td>
-            <td>
-                <div>{{ $practice->created_at }}</div>
             </td>
         </tr>
         @endforeach
-    </table>
+    </li>
     @else
     <p>there's no practice to show</p>
     @endif
