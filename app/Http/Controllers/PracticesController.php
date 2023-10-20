@@ -54,4 +54,19 @@ class PracticesController extends Controller
         return redirect('/');
     }
     
+    public function create(Request $request){
+        
+        $genre = Genre::findOrFail($request.genre_id);
+        
+        $copings = $genre->copings()->get();
+        
+        $coping_ids = [];
+        
+        foreach($copings as $coping){
+            $coping_ids->add($coping->id);
+        }
+        
+        return $coping_ids;
+    }
+    
 }

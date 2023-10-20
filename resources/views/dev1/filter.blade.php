@@ -1,5 +1,3 @@
-@inject('App\Models\Coping')
-
 <div class="m-4 p-4 bg-white">
     @if(Auth::check())
     <form method="POST" action="{{ route('practices.store') }}">
@@ -39,21 +37,30 @@
 <script type="text/javascript">
     $(function(){
         $('#genre_id').change(function(event) {
+            event.preventDefault();
             
-            var copings = "{{Coping::where('genre_id', '=', $genre_id)}}";
-            if(isempty(copings)){
-                copings = "{{$copings}}";
-            }else{
-                var option;
-                foreach(copings as coping){
-                    option = '<option value="' + coping.id + '">' + coping.action + '</option>';
-                    $('#coping_id').append(option);
-                }
-            }
+            var a_link = 'ProfileController.php';
+            let genre_id = '#genre_id';
             
-            
+            $.ajax({
+                url: a_link,
+                cache: false,
+                type: 'POST',
+                data: { "genre_id": genre_id },
+                timeout: 10000,
+                dataType: 'html'
+                
+                }).done(function (data) { //Ajax通信に成功したときの処理
+                    alert('success');
+                    $("#coping_id").append('coping_id');
+                    
+                }).fail(function (data) { //Ajax通信に失敗したときの処理
+                    alert('error');
+                })
             })
         })
     });
     
 </script>
+
+
