@@ -9,7 +9,7 @@
         <div  class="chat chat-start">
             <div class="chat-image avatar">
                 <div class="w-20 rounded-full">
-                    @if($user->profile->icon_path)
+                    @if(isset($user->profile->icon_path))
                     <img src="/storage/{{$user->profile->icon_path}}" alt="{{$user->name}}さんのアイコン" >
                     @else
                     <img src="/storage/images/fantasy_ocean_kraken.png" alt="クラーケン" >

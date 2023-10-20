@@ -1,5 +1,5 @@
 <header class="">
-    <nav class="navbar bg-green-900 text-neutral-content">
+    <nav class="navbar bg-yellow-900 text-neutral-content">
         {{-- トップページへのリンク --}}
         <div class="flex-1">
             <h1><a class="btn btn-ghost normal-case text-xl" href="/">Cope-with</a></h1>

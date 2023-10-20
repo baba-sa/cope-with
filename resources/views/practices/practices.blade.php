@@ -7,7 +7,7 @@
                 <div class="chat chat-start">
                     <div class="chat-image avatar">
                         <div class="w-16 rounded-full">
-                            @if($practice->user->profile->icon_path)
+                            @if(isset($practice->user->profile->icon_path))
                             <img src="/storage/{{$practice->user->profile->icon_path}}" alt="" />
                             @else
                             <img src="/storage/images/fantasy_ocean_kraken.png" alt="" />

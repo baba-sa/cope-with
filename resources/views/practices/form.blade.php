@@ -1,4 +1,5 @@
 <div class="m-4 p-4 bg-white">
+    @if(Auth::check())
     <form method="POST" action="{{ route('practices.store') }}">
         @csrf
         <div>
@@ -9,7 +10,7 @@
                 <label class="label">
                     <span class="label-text">アクション</span>
                 </label>
-                <select class="select select-bordered" name='coping_id'>
+                <select class="select select-bordered select-sm" name='coping_id'>
                 @foreach($copings as $coping)
                     <option value="{{ $coping->id }}">{{ $coping->action }}</option>
                 @endforeach
@@ -25,4 +26,9 @@
         
         <button type="submit" class="btn btn-primary normal-case">submit</button>
     </form>
+    @else
+    <div>
+        <p>プラクティスを投稿するにはログインしてください。</p>
+    </div>
+    @endif
 </div>
