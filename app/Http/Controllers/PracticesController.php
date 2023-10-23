@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Practice;
 use App\Models\Coping;
 use App\Models\User;
+use App\Models\Genre;
 
 class PracticesController extends Controller
 {
@@ -54,9 +55,9 @@ class PracticesController extends Controller
         return redirect('/');
     }
     
-    public function create(Request $request){
+    public function filter(Request $request){
         
-        $genre = Genre::findOrFail($request.genre_id);
+        $genre = Genre::findOrFail($request->genre_id);
         
         $copings = $genre->copings()->get();
         
@@ -66,7 +67,7 @@ class PracticesController extends Controller
             $coping_ids->add($coping->id);
         }
         
-        return $coping_ids;
+        return redirect('dashboard', ['copings' => $copings,]);
     }
     
 }

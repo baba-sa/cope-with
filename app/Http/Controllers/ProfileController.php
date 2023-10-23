@@ -26,6 +26,14 @@ class ProfileController extends Controller
     
     public function update(Request $request)
     {
+         $this->validate($request, [
+            'user_bio' => 'required',
+            'user_icon' => [
+                'file',
+                'mimes:jpeg,jpg,png'
+            ]
+        ]);
+        
         $id = $request->user()->profile->id;
         
         $profile = Profile::findOrFail($id);
@@ -39,7 +47,7 @@ class ProfileController extends Controller
         $profile->profile_comment = $request->user_bio;
             
         if($profile->save()){
-            return redirect()->back();
+            return redirect('users/'.$id);
         }
         
     }

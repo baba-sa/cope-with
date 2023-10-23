@@ -8,7 +8,7 @@
             <div class="collapse collapse-arrow">
                 <input type="checkbox" name="accordion-1" checked="checked" />
                 <div class="bg-yellow-50 collapse-title">
-                    <h2 class="text-lg font-bold text-gray-800 antialiased">プラクティス登録</h2>
+                    <h2 class="text-lg font-bold text-gray-800 antialiased">実施記録登録</h2>
                 </div>
                 <div class="collapse-content">
                 @include('practices.form')
@@ -17,10 +17,10 @@
             <div class="collapse collapse-arrow">
                 <input type="checkbox" name="accordion-2" checked="checked" />
                 <div class="bg-yellow-50 collapse-title">
-                    <h2 class="text-lg font-bold text-gray-800 antialiased">みんなのプラクティス</h2>
+                    <h2 class="text-lg font-bold text-gray-800 antialiased">みんなの実施記録</h2>
                 </div>
                 <div class="collapse-content">
-                @include('practices.practices', ['practices'=>$practices])
+                @include('practices.practices', ['practices' => $practices])
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <h2 class="text-lg font-bold text-gray-800 antialiased">マイアクション</h2>
                 </div>
                 <div class="collapse-content">
-                @include('copings.copings', ['copings'=>$mycopes])
+                @include('copings.copings', ['copings' => $mycopes])
                 </div>
             </div>
             @endif

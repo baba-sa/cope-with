@@ -16,7 +16,7 @@
     
     
     {{--アイコン登録--}}
-    <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+    <input type="file" accept="image/png, image/jpeg" class="file-input file-input-bordered w-full max-w-xs" />
 
     {{--プロフィール文登録--}}
     <div class="form-control">

@@ -11,15 +11,55 @@ use App\Models\User;
 class CopingsController extends Controller
 {
     //
-    public function index(){
+    public function index(Request $request){
 
-        $copings = Coping::where('is_public','1')->orderBy('id', 'desc')->get();
+        if(empty($request)){
+            $copings = Coping::where('is_public','1')->orderBy('id', 'desc')->get();
+            
+        }else{
+            $created_by = $request->created_by;
+            $genre_id = $request->genre_id;
+            $user_id = \Auth::user()->id;
+            
+            
+            $query = Coping::query();
+            
+            if($request->order){
+                $query->orderBy('copings.created_at', 'asc');
+            }else{
+                $query->orderBy('copings.created_at', 'desc');
+            }
+            
+            if($created_by){
+                $query->where('copings.user_id', '=', $user_id);
+            }else{
+                $query->where('copings.is_public','1');
+            }
+            
+            if(!empty($genre_id)){
+                $query->where('copings.genre_id', '=', $genre_id);
+            }
+            
+            if($request->only_my_actions){
+                $query->join('my_actions', 'coping_id', '=', 'copings.id')
+                    ->where('my_actions.user_id', '=', $user_id);
+                    
+                $my_actions=$query->orderBy('copings.id', 'desc')->get();
+                $copings = [];
+                foreach($my_actions as $action){
+                    $coping = Coping::find($action->coping_id);
+                    array_push($copings, $coping);
+                }
+                return view ('copings.index', [
+                    'copings' => $copings,
+                    ]);
+            }
+            $copings = $query->get();
+                
+        }
         
-        $genres = Genre::all();
-
         return view ('copings.index', [
             'copings' => $copings,
-            'genres' => $genres,
         ]);
         
     }

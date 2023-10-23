@@ -6,7 +6,7 @@
         <div>
             <label class="label-text">{{ $user->name }}さんの自己紹介</label>
         </div>
-        <div  class="chat chat-start">
+        <div class="chat chat-start">
             <div class="chat-image avatar">
                 <div class="w-20 rounded-full">
                     @if(isset($user->profile->icon_path))
@@ -17,10 +17,10 @@
                 </div>
             </div>
         
-            <div class="chat-bubble bg-gray-50 text-gray-800">{{ $user->profile->profile_comment }}</div>
+            <div class="chat-bubble bg-yellow-50 text-gray-800">{{ $user->profile->profile_comment }}</div>
         </div>
     </div>
-    <div class="">
+    <div class="flex justify-end">
         @if($user->id===Auth::id())
         <form action="{{ route('profile.edit') }}">
             <button class="btn btn-ghost">編集</button>

@@ -18,7 +18,7 @@
         </div>
         
         <div class="form-control my-4">
-            <input type="file" name="user_icon" class="file-input file-input-bordered w-full max-w-xs" />
+            <input type="file" accept="image/png, image/jpeg" name="user_icon" class="file-input file-input-bordered w-full max-w-xs" />
         </div>
         
         

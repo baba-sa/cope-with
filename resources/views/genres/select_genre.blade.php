@@ -2,8 +2,7 @@
 @php
 $genres = $genres::all();
 @endphp
-
-<div class="form-control rounded-lg">
+<div class="inline-flex form-control rounded-lg">
     <label class="label">
         <span class="label-text">ジャンル</span>
     </label>
