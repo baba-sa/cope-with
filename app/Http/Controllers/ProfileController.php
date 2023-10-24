@@ -27,7 +27,6 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
          $this->validate($request, [
-            'user_bio' => 'required',
             'user_icon' => [
                 'file',
                 'mimes:jpeg,jpg,png'

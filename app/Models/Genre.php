@@ -12,6 +12,6 @@ class Genre extends Model
     use HasFactory;
     
     public function copings(){
-        return this->hasMany(Coping::class);
+        return $this->hasMany(Coping::class);
     }
 }

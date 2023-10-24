@@ -1,7 +1,13 @@
 @inject('genres', 'App\Models\Genre')
 @php
 $genres = $genres::all();
+$cops_by_genre = array();
+foreach($genres as $genre){
+    $cops = $genre->copings()->get();
+    array_push($cops_by_genre, array($genre->id =>$cops));
+}
 @endphp
+
 <div class="m-4 p-4 bg-white">
     @if(Auth::check())
     <form method="POST" action="{{ route('practices.store') }}">
@@ -46,3 +52,25 @@ $genres = $genres::all();
     </div>
     @endif
 </div>
+
+<div></div>
+
+<script>
+    let copingsArray = JSON.parse('<?php echo json_encode($cops_by_genre)?>');
+    
+    
+    document.getElementById('genre_id').onchange = function () {
+        let genre = this.value;
+        let copings = document.getElementById('coping_id');
+        copings.options.length = 0;
+            for (let i = 0; i < copingsArray[genre -1][genre].length; i++) {
+                let op = document.createElement('option');
+                op.value = copingsArray[genre -1][genre][i].id;
+                op.textContent = copingsArray[genre -1][genre][i].action;
+                copings.appendChild(op);
+            }
+    };
+    window.onload = function () {
+
+    };
+</script>
