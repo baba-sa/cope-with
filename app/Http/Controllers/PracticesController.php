@@ -16,7 +16,7 @@ class PracticesController extends Controller
         
         $copings = Coping::where('is_public','1')->orderBy('id', 'desc')->get();
         $copeids = $copings->pluck('id')->toArray();
-        $practices = Practice::whereIn('coping_id', $copeids)->orderBy('id', 'desc')->get();
+        $practices = Practice::whereIn('coping_id', $copeids)->orderBy('id', 'desc')->simplePaginate(20);
         $mycopes = [];
         if(\Auth::check()){
             $mycopes = \Auth::user()->myActions()->get();
@@ -32,11 +32,18 @@ class PracticesController extends Controller
     
     public function store(Request $request){
         
+        $this->validate($request, [
+            'coping_id' => ['required', ],
+            'comment' => ['required', ],
+        ]);
+        
         $practice = new Practice();
         
         $practice->comment = $request->comment;
         $practice->user_id = \Auth::user()->id;
         $practice->coping_id = $request->coping_id;
+        $practice->mood_id_before = $request->mood_id_before;
+        $practice->mood_id_after = $request->mood_id_after;
         
         $practice->save();
         
@@ -54,20 +61,4 @@ class PracticesController extends Controller
         
         return redirect('/');
     }
-    
-    public function filter(Request $request){
-        
-        $genre = Genre::findOrFail($request->genre_id);
-        
-        $copings = $genre->copings()->get();
-        
-        $coping_ids = [];
-        
-        foreach($copings as $coping){
-            $coping_ids->add($coping->id);
-        }
-        
-        return redirect('dashboard', ['copings' => $copings,]);
-    }
-    
 }

@@ -13,6 +13,8 @@ class Practice extends Model
         'user_id',
         'coping_id',
         'comment',
+        'mood_id_before',
+        'mood_id_after',
     ];
     
     public function user()

@@ -1,11 +1,13 @@
-<div>
+<div class="max-w-lg ">
     @if(isset($copings))
     <ul class="flex flex-wrap">
         
         @foreach($copings as $coping)
-        <div class="rounded-xl bg-white m-4 p-2 ">
-            <li><a href="{{ route('copings.show', $coping->id) }}">{{ $coping->action }}</a>
-        </div>
+        <li class="m-2">
+            <form method="GET" action="{{ route('copings.show', $coping->id) }}">
+                <button class="btn bg-white normal-case">{{ $coping->action }}</button>
+            </form>
+        </li>
         @endforeach
     </ul>
     @endif

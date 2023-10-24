@@ -13,6 +13,7 @@ foreach($genres as $genre){
     <form method="POST" action="{{ route('practices.store') }}">
         @csrf
         <div class="my-4">
+            @if(!isset($page))
             <div class="inline-flex form-control rounded-lg">
                 <label class="label">
                     <span class="label-text">ジャンル</span>
@@ -24,6 +25,7 @@ foreach($genres as $genre){
                     @endforeach
                 </select>
             </div>
+            @endif
             <div class="form-control">
                 <label class="label">
                     <span class="label-text">アクション</span>
@@ -39,6 +41,30 @@ foreach($genres as $genre){
                     <span class="label-text">コメント</span>
                 </label>
                 <textarea class="textarea textarea-bordered max-w-sm" name='comment'></textarea>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">実施前の気分</span>
+                </label>
+                <div class="rating gap-1">
+                  <input type="radio" name="mood_id_before" value="1" class="mask mask-heart bg-orange-400" />
+                  <input type="radio" name="mood_id_before" value="2" class="mask mask-heart bg-orange-400" />
+                  <input type="radio" name="mood_id_before" value="3" class="mask mask-heart bg-orange-400" checked/>
+                  <input type="radio" name="mood_id_before" value="4" class="mask mask-heart bg-orange-400" />
+                  <input type="radio" name="mood_id_before" value="5" class="mask mask-heart bg-orange-400" />
+                </div>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">実施後の気分</span>
+                </label>
+                <div class="rating gap-1">
+                  <input type="radio" name="mood_id_after" value="1" class="mask mask-heart bg-lime-400" />
+                  <input type="radio" name="mood_id_after" value="2" class="mask mask-heart bg-lime-400" />
+                  <input type="radio" name="mood_id_after" value="3" class="mask mask-heart bg-lime-400" checked/>
+                  <input type="radio" name="mood_id_after" value="4" class="mask mask-heart bg-lime-400" />
+                  <input type="radio" name="mood_id_after" value="5" class="mask mask-heart bg-lime-400" />
+                </div>
             </div>
         </div>
         <div class="flex justify-center">

@@ -21,6 +21,10 @@ use App\Http\Controllers\MyActionsController;
 
 Route::get('/', [PracticesController::class, 'index']);
 
+Route::get('/introduce', function(){
+    return view('introduce');
+});
+
 Route::get('/dashboard', [PracticesController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -31,6 +35,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
+    
     Route::resource('users', UsersController::class, ['only' => ['index', 'show']]);
     Route::resource('copings', CopingsController::class, ['only' => ['index', 'show', 'create', 'store']]);
     Route::resource('practices', PracticesController::class, ['only' => ['index', 'show', 'store', 'destroy']]);
@@ -39,6 +44,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('my_action', [MyActionsController::class, 'store'])->name('my_action.add');
         Route::delete('my_action', [MyActionsController::class, 'destroy'])->name('my_action.remove'); 
     });
-    
 });
+
 

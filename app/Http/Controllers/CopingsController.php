@@ -79,6 +79,11 @@ class CopingsController extends Controller
     
     public function store(Request $request){
         
+        $this->validate($request, [
+            'action' => ['required', ],
+            'genre_id' => ['required', ],
+        ]);
+        
         $user_id = \Auth::id();
         
         $coping = new Coping([
@@ -101,7 +106,7 @@ class CopingsController extends Controller
         
         $coping = Coping::findOrFail($id);
         
-        $practices = $coping->practices()->get();
+        $practices = $coping->practices()->simplePaginate(20);
         
         return view('copings.show', [
             'coping' => $coping,

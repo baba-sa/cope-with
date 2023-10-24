@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gray-50 my-20 h-screen">
+<div class="bg-gray-50 my-20 ">
     <div class="bg-yellow-50 p-4 text-xl font-bold">
         <h2>アクション詳細</h2>
     </div>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="">
-        @include('practices.form', ['copings' => [$coping],])
+        @include('practices.form', ['copings' => [$coping], 'page' => 'copings.show'])
     </div>
     <div class="p-4">
         @include('practices.practices', ['practices' => $practices,])
