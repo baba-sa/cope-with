@@ -8,7 +8,7 @@ foreach($genres as $genre){
 }
 @endphp
 
-<div class="m-4 p-4 bg-white">
+<div class="m-4 p-4 bg-pale-orange text-dark-brown rounded-lg">
     @if(Auth::check())
     <form method="POST" action="{{ route('practices.store') }}">
         @csrf
@@ -47,11 +47,11 @@ foreach($genres as $genre){
                     <span class="label-text">実施前の気分</span>
                 </label>
                 <div class="rating gap-1">
-                  <input type="radio" name="mood_id_before" value="1" class="mask mask-heart bg-orange-400" />
-                  <input type="radio" name="mood_id_before" value="2" class="mask mask-heart bg-orange-400" />
-                  <input type="radio" name="mood_id_before" value="3" class="mask mask-heart bg-orange-400" checked/>
-                  <input type="radio" name="mood_id_before" value="4" class="mask mask-heart bg-orange-400" />
-                  <input type="radio" name="mood_id_before" value="5" class="mask mask-heart bg-orange-400" />
+                  <input type="radio" name="mood_id_before" value="1" class="mask mask-heart bg-sango" />
+                  <input type="radio" name="mood_id_before" value="2" class="mask mask-heart bg-sango" />
+                  <input type="radio" name="mood_id_before" value="3" class="mask mask-heart bg-sango" checked/>
+                  <input type="radio" name="mood_id_before" value="4" class="mask mask-heart bg-sango" />
+                  <input type="radio" name="mood_id_before" value="5" class="mask mask-heart bg-sango" />
                 </div>
             </div>
             <div class="form-control">
@@ -59,22 +59,22 @@ foreach($genres as $genre){
                     <span class="label-text">実施後の気分</span>
                 </label>
                 <div class="rating gap-1">
-                  <input type="radio" name="mood_id_after" value="1" class="mask mask-heart bg-lime-400" />
-                  <input type="radio" name="mood_id_after" value="2" class="mask mask-heart bg-lime-400" />
-                  <input type="radio" name="mood_id_after" value="3" class="mask mask-heart bg-lime-400" checked/>
-                  <input type="radio" name="mood_id_after" value="4" class="mask mask-heart bg-lime-400" />
-                  <input type="radio" name="mood_id_after" value="5" class="mask mask-heart bg-lime-400" />
+                  <input type="radio" name="mood_id_after" value="1" class="mask mask-heart bg-matcha" />
+                  <input type="radio" name="mood_id_after" value="2" class="mask mask-heart bg-matcha" />
+                  <input type="radio" name="mood_id_after" value="3" class="mask mask-heart bg-matcha" checked/>
+                  <input type="radio" name="mood_id_after" value="4" class="mask mask-heart bg-matcha" />
+                  <input type="radio" name="mood_id_after" value="5" class="mask mask-heart bg-matcha" />
                 </div>
             </div>
         </div>
         <div class="flex justify-center">
-            <button type="submit" class="btn btn-primary normal-case">投稿</button>
+            <button type="submit" class="btn bg-matcha text-pale-orange hover:bg-sango normal-case">投稿</button>
         </div>
         
     </form>
     @else
     <div>
-        <p>実施記録を投稿するにはログインしてください。</p>
+        <p class="text-dark-brown">実施記録を投稿するにはログインしてください。</p>
     </div>
     @endif
 </div>

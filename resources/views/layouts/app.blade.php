@@ -7,13 +7,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @vite(['resources/css/app.css', 'resources/js/app.js', ])
     </head>
-     <body class="bg-fixed">
+     <body class="bg-pale-orange">
         <div class="fixed top-0 w-full z-50">
                     {{-- ナビゲーションバー --}}
                     @include('commons.navbar')
         </div>
 
-        <div class="mt-20 container mx-auto ">
+        <div class="pt-20 container mx-auto ">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
 
@@ -21,7 +21,7 @@
 
         </div>
         <div class="fixed bottom-0 w-full z-50">
-            <footer class="px-3 py-5 bg-yellow-900 text-sm text-gray-400 text-center">
+            <footer class="px-3 py-5 bg-matcha text-sm text-gray-400 text-center">
                 &copy; cope-with
             </footer>
         </div>

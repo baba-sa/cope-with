@@ -1,4 +1,4 @@
-<div class="mx-4 p-4 bg-white">
+<div class="m-4 p-4 bg-pale-orange rounded-lg">
     @if(isset($practices))
     <ul>
         @foreach($practices as $practice)
@@ -13,13 +13,13 @@
                         @endif
                     </div>
                 </div>
-                <div class="chat-bubble bg-yellow-50 text-gray-800">
+                <div class="chat-bubble bg-pink-orange text-dark-brown">
                     <a class="link" href="{{ route('users.show', $practice->user_id) }}">{{$practice->user->name}}</a>
                     さんが
                     <a class="link" href="{{ route('copings.show', $practice->coping_id) }}">{{ $practice->coping->action }}</a>
                     を実施しました。<br/>
                 </div>
-                <div class="chat-bubble bg-yellow-50 text-gray-800">{{ $practice->comment }}</div>
+                <div class="chat-bubble bg-pink-orange text-dark-brown">{{ $practice->comment }}</div>
                 <div class="chat-footer opacity-50 text-right">
                     {{ $practice->created_at }}
                 </div>

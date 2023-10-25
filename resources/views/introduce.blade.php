@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
-<div class="my-20 p-4 bg-gray-50">
-    <div class="m-4 p-4 bg-white rounded-lg">
+<div class="pb-20 p-4 bg-pink-orange">
+    <div class="m-4 p-4 bg-pale-orange rounded-lg">
         <div class="my-10">
             <h2>
                 Cope-withとは……
             </h2>
         </div>
         <div class="flex justify-center my-40">
-            <h1 class="text-gray-800 text-2xl">
+            <h1 class="text-dark-brown text-2xl">
                 ストレス対処の道しるべをたどり、<br/>
                 自分だけのストレス対処法を見つける
             </h1>
@@ -23,8 +23,8 @@
             </div>
         </div>
     </div>
-    <div class="m-4 p-4 bg-yellow-50"></div>
-    <div class="m-4 p-4 bg-white rounded-lg">
+
+    <div class="mx-4 my-12 p-4 bg-pale-orange rounded-lg">
         <div class="">
             <h2 class="my-10">
                 コーピングについて
@@ -51,8 +51,8 @@
             </p>
         </div>
     </div>
-    <div class="m-4 p-4 bg-yellow-50"></div>
-    <div class="m-4 p-4 bg-white rounded-lg">
+
+    <div class="m-4 p-4 bg-pale-orange rounded-lg">
         <h2 class="my-10">このサイトでは……</h2>
         <p class="p-4">以下のことができます。</p>
         <ul class="ml-10 p-4 list-disc">
@@ -84,6 +84,6 @@
             </li>
         </ul>
     </div>
-    <div class="m-4 p-4 bg-yellow-50"></div>
+
 </div>
 @endsection

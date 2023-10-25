@@ -34,7 +34,7 @@ class PracticesController extends Controller
         
         $this->validate($request, [
             'coping_id' => ['required', ],
-            'comment' => ['required', ],
+            'comment' => ['required', 'max:200', ],
         ]);
         
         $practice = new Practice();

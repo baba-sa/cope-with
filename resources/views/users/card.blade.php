@@ -1,10 +1,10 @@
 <div class="card border border-base-300 rounded-lg">
-    <div class="card-body bg-base-200 text-4xl">
-        <h2 class="card-title">{{ $user->name }}</h2>
+    <div class="card-body bg-dark-brown text-4xl rounded-t-lg">
+        <h2 class="card-title text-pale-orange">{{ $user->name }}</h2>
     </div>
-    <div class="card-body bg-white">
+    <div class="card-body bg-pale-orange">
         <div>
-            <label class="label-text">{{ $user->name }}さんの自己紹介</label>
+            <label class="label-text text-dark-brown">{{ $user->name }}さんの自己紹介</label>
         </div>
         <div class="chat chat-start">
             <div class="chat-image avatar">
@@ -17,13 +17,13 @@
                 </div>
             </div>
         
-            <div class="chat-bubble bg-yellow-50 text-gray-800">{{ $user->profile->profile_comment }}</div>
+            <div class="chat-bubble bg-pink-orange text-dark-brown">{{ $user->profile->profile_comment }}</div>
         </div>
     </div>
-    <div class="flex justify-end">
+    <div class="flex justify-end bg-matcha rounded-b-lg">
         @if($user->id===Auth::id())
         <form action="{{ route('profile.edit') }}">
-            <button class="btn btn-ghost">編集</button>
+            <button class="btn btn-ghost text-pale-orange">編集</button>
         </form>
         @endif
     </div>

@@ -80,7 +80,7 @@ class CopingsController extends Controller
     public function store(Request $request){
         
         $this->validate($request, [
-            'action' => ['required', ],
+            'action' => ['required', 'max:40', ],
             'genre_id' => ['required', ],
         ]);
         

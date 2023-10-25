@@ -13,6 +13,14 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                // 'カラー名': 'カラーコード'
+                'matcha': '#70735C',
+                'pale-orange': '#F2E3D5',
+                'dark-brown': '#401A0D',
+                'sango': '#D96B62',
+                'pink-orange': '#F2B999'
+            },
         },
     },
 

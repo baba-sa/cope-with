@@ -1,18 +1,18 @@
 <header class="">
-    <nav class="navbar bg-yellow-900 text-neutral-content">
+    <nav class="navbar bg-matcha text-neutral-content">
         {{-- トップページへのリンク --}}
         <div class="flex-1">
-            <h1><a class="btn btn-ghost normal-case text-xl" href="/">Cope-with</a></h1>
+            <h1><a class="btn btn-ghost normal-case text-xl text-pale-orange" href="/">Cope-with</a></h1>
         </div>
 
         <div class="flex-none">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <ul tabindex="0" class="menu hidden lg:menu-horizontal">
+                <ul tabindex="0" class="menu hidden lg:menu-horizontal text-pale-orange">
                     @include('commons.link_items')
                 </ul>
                 <div class="dropdown dropdown-end">
-                    <button type="button" tabindex="0" class="btn btn-ghost normal-case font-normal lg:hidden">
+                    <button type="button" tabindex="0" class="btn btn-ghost normal-case font-normal text-pale-orange lg:hidden">
                         @if (Auth::check())
                            {{ Auth::user()->name }}
                         @else
@@ -22,7 +22,7 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-info">
+                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-pale-orange rounded-box w-52 text-info text-matcha">
                         @include('commons.link_items')
                     </ul>
                 </div>

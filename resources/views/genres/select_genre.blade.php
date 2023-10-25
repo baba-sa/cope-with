@@ -4,7 +4,7 @@ $genres = $genres::all();
 @endphp
 <div class="inline-flex form-control rounded-lg">
     <label class="label">
-        <span class="label-text">ジャンル</span>
+        <span class="label-text text-dark-brown">ジャンル</span>
     </label>
     <select id="genre_id" name="genre_id" class="select select-bordered select-sm w-full max-w-xs">
         <option disabled selected>----</option>
