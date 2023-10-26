@@ -1,14 +1,32 @@
 @extends('layouts.app')
 @section('content')
-<div class="bg-pink-orange pb-20">
-    <div class="my-4 p-4 w-full bg-dark-brown">
-        <h2 class="text-xl font-bold text-pale-orange">
-            フィルタとソート
-        </h2>
+<div class="bg-pink-orange pb-20" >
+    <div id="tabs-id" class="">
+        <div class="tabs">
+            <a class="tab tab-lifted tab-active text-dark-brown font-bold hover:bg-sango hover:text-pale-orange" onclick="changeActiveTab(event,'tab-kensaku')">
+                検索
+            </a>
+            <a class="tab tab-lifted text-dark-brown font-bold hover:bg-sango hover:text-pale-orange" onclick="changeActiveTab(event,'tab-touroku')">
+                登録
+            </a>
+        </div>
     </div>
-    <div>
-        @include('copings.filter_and_sort')
+    <div class="tab-content">
+        <div id="tab-kensaku" class="">
+            <div class=" p-4 w-full bg-dark-brown">
+                <h2 class="text-xl font-bold text-pale-orange">
+                    フィルタとソート
+                </h2>
+            </div>
+            <div>
+                @include('copings.filter_and_sort')
+            </div>
+        </div>
+        <div id="tab-touroku" class="hidden">
+            @include('copings.form')
+        </div>
     </div>
+    
     <div class="my-4 p-4 w-full bg-dark-brown">
         <h2 class="text-xl font-bold text-pale-orange">
             アクション一覧
@@ -62,4 +80,31 @@
         @endforeach
     </ul>
 </div>
+<div></div>
+<script type="text/javascript">
+  function changeActiveTab(event,tabID){
+    let element = event.target;
+    while(element.nodeName !== "A"){
+      element = element.parentNode;
+    }
+    let hiddenTabId = 'tab-touroku';
+    if(tabID=='tab-touroku'){
+        hiddenTabId = 'tab-kensaku'
+    }
+    
+    let nextElement = element.previousElementSibling;
+    if(!nextElement){
+        nextElement = element.nextElementSibling;
+    }
+    
+    nextElement.classList.remove("tab-active");
+    document.getElementById(hiddenTabId).classList.remove("blocd");
+    document.getElementById(hiddenTabId).classList.add("hidden");
+    
+    element.classList.add("tab-active");
+    document.getElementById(tabID).classList.remove("hidden");
+    document.getElementById(tabID).classList.add("block");
+  }
+  
+</script>
 @endsection

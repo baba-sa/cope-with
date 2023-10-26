@@ -3,10 +3,8 @@
     <li><a class="link link-hover" href="/introduce">どんなサイト？</a></li>
     {{-- ユーザ詳細ページへのリンク --}}
     <li><a class="link link-hover" href="{{ route('users.show', Auth::user()->id) }}">{{ Auth::user()->name }}さんのプロフィール</a></li>
-    {{--アクション登録ページへのリンク--}}
-    <li><a class="link link-hover" href="{{ route('copings.create') }}">アクションを追加する</a></li>
     {{--アクション一覧ページへのリンク--}}
-    <li><a class="link link-hover" href="{{ route('copings.index') }}">アクション一覧</a></li>
+    <li><a class="link link-hover" href="{{ route('copings.index') }}">アクション一覧 / 登録</a></li>
 
     <li class="divider lg:hidden"></li>
     {{-- ログアウトへのリンク --}}

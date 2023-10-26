@@ -9,20 +9,17 @@
                 <span class="label-text text-dark-brown">アクション</span>
             </label>
             <input type="text"  name='action' class="input input-sm input-bordered max-w-xs"></input>
-        </div>
-        <div class="rounded-lg m-4 p-4 bg-pale-orange">
             @include('genres.select_genre')
-        </div>
-        <div class="form-control rounded-lg m-4 p-4 bg-pale-orange">
             <label class="label">
                 <span class="label-text text-dark-brown">全体公開しますか？ </span>
             </label>
             <input type="checkbox" class="checkbox border-2 border-matcha" name="is_public" checked></input>
-        </div>
-        <div class="flex justify-center w-full p-4">
-            <button type="submit" class="btn bg-matcha text-pale-orange normal-case hover:bg-pink-orange">
-                アクション登録
-            </button>
+        
+            <div class="flex justify-center w-full p-4">
+                <button type="submit" class="btn bg-matcha text-pale-orange normal-case hover:bg-sango">
+                    アクション登録
+                </button>
+            </div>
         </div>
     </form>
 </div>

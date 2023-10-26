@@ -1,4 +1,5 @@
-<div class="flex flex-wrap bg-pale-orange text-dark-brown mx-4 rounded-lg">
+<div class="bg-pale-orange text-dark-brown mx-4 mt-4 rounded-lg">
+    <div class="flex flex-wrap">
     <form action={{ route('copings.index') }}>
         @csrf
         @method("GET")
@@ -45,9 +46,10 @@
                 </select>
             </div>
         </div>
+    </div>
         
-        <div class="flex justify-center p-4">
-            <button class="btn text-pale-orange bg-sango hover:bg-pale-orange hover:text-sango">フィルタ / ソート</button>
+        <div class="flex justify-center w-full p-4">
+            <button class="btn text-pale-orange bg-sango hover:bg-pink-orange hover:text-sango hover:border-sango">フィルタ / ソート</button>
         </div>
     </form>
 </div>

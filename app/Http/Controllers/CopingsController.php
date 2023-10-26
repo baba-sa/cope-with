@@ -98,7 +98,7 @@ class CopingsController extends Controller
         $coping->users()->attach($user_id);
         
         //return redirect('dashboard');
-        return back();
+        return back()->with('data', 'touroku');;
         
     }
     
