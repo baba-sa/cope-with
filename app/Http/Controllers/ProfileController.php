@@ -36,8 +36,11 @@ class ProfileController extends Controller
         $id = $request->user()->profile->id;
         
         $profile = Profile::findOrFail($id);
-        
-        $path = null;
+        $path = '';
+        if(isset($profile->icon_path)){
+            $path = $profile->icon_path;
+            
+        }
         if ($request->hasFile('user_icon')) {
             $path = $request->file('user_icon')->store('profile-icons', 'public');
         }
