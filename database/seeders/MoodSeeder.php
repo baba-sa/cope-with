@@ -17,8 +17,7 @@ class MoodSeeder extends Seeder
     public function run()
     {
         //
-        $mood_strs = ['happy','good','so-so','not good','bad',];
-        
+        $mood_strs = ['☆1','☆2','☆3','☆4','☆5',];
         foreach($mood_strs as $str){
             $mood = new Mood([
                 'name_of_mood' => $str, 
