@@ -30,8 +30,8 @@
           <textarea name="user_bio" class="textarea textarea-bordered">{{$user->profile->profile_comment}}</textarea>
         </div>
         
-        <div class="flex items-center gap-4">
-            <button class="btn">save</button>
+        <div class="flex justify-center gap-4">
+            <button class="btn bg-matcha text-pale-orange">save</button>
         </div>
     </form>
 </div>
