@@ -9,7 +9,7 @@ use App\Models\User;
 
 class StatsController extends Controller
 {
-    //
+    /* ユーザのpractices統計情報を表示 */
     public function show(Request $request){
         
         $user = \Auth::user();
@@ -41,6 +41,7 @@ class StatsController extends Controller
         
     }
     
+    /* 閲覧者が実施したことのあるコーピングをすべて取得 */
     private function getCopings($id){
         
         $user = User::findOrFail($id);
@@ -57,6 +58,7 @@ class StatsController extends Controller
         return $copings;
     }
     
+    /* moods_diff(気分の変化)平均を取得 */
     private function getAverageDiffMoods($practices){
         
         $count_practices = $practices->count();

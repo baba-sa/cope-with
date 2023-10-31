@@ -98,7 +98,7 @@
     }
     
     nextElement.classList.remove("tab-active");
-    document.getElementById(hiddenTabId).classList.remove("blocd");
+    document.getElementById(hiddenTabId).classList.remove("block");
     document.getElementById(hiddenTabId).classList.add("hidden");
     
     element.classList.add("tab-active");
