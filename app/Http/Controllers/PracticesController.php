@@ -44,6 +44,7 @@ class PracticesController extends Controller
         $practice->coping_id = $request->coping_id;
         $practice->mood_id_before = $request->mood_id_before;
         $practice->mood_id_after = $request->mood_id_after;
+        $practice->diff_moods = (int)$request->mood_id_after - (int)$request->mood_id_before;
         
         $practice->save();
         

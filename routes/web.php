@@ -7,6 +7,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CopingsController;
 use App\Http\Controllers\PracticesController;
 use App\Http\Controllers\MyActionsController;
+use App\Http\Controllers\StatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UsersController::class, ['only' => ['index', 'show']]);
     Route::resource('copings', CopingsController::class, ['only' => ['index', 'show', 'create', 'store']]);
     Route::resource('practices', PracticesController::class, ['only' => ['index', 'show', 'store', 'destroy']]);
+    
+    Route::get('/stats', [StatsController::class, 'show'])->name('stats.show');
+    Route::put('/stats', [StatsController::class, 'filter'])->name('stats.filter');
 
     Route::group(['prefix' => 'copings/{id}'], function () {
         Route::post('my_action', [MyActionsController::class, 'store'])->name('my_action.add');

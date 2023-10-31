@@ -15,10 +15,7 @@ return new class extends Migration
     {
         Schema::table('practices', function (Blueprint $table) {
             //
-            $table->foreignId('mood_id_before')
-            ->constrained(table: 'moods');
-            $table->foreignId('mood_id_after')
-            ->constrained(table: 'moods');
+            $table->tinyInteger('diff_moods');
         });
     }
 
@@ -31,8 +28,7 @@ return new class extends Migration
     {
         Schema::table('practices', function (Blueprint $table) {
             //
-            $table->dropForeign('mood_id_before');
-            $table->dropForeign('mood_id_after');
+            $table->dropColumn('diff_moods');
         });
     }
 };

@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for morning-dust-4965 on 2023-10-25T07:05:42Z
+# fly.toml app configuration file generated for old-meadow-2490 on 2023-10-27T07:08:44Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "morning-dust-4965"
+app = "old-meadow-2490"
 primary_region = "nrt"
 console_command = "php /var/www/html/artisan tinker"
 
@@ -20,7 +20,7 @@ console_command = "php /var/www/html/artisan tinker"
   SESSION_DRIVER = "cookie"
   SESSION_SECURE_COOKIE = "true"
   
-  APP_URL = "https://morning-dust-4965.fly.dev"
+  APP_URL = "https://old-meadow-2490.fly.dev"
   APP_NAME = "cope-with"
   APP_DEBUG = false
   DB_CONNECTION = "pgsql"
@@ -29,7 +29,6 @@ console_command = "php /var/www/html/artisan tinker"
   DB_DATABASE = "postgres"
   DB_USERNAME = "postgres"
   
-
 [http_service]
   internal_port = 8080
   force_https = true
@@ -39,5 +38,5 @@ console_command = "php /var/www/html/artisan tinker"
   processes = ["app"]
 
 [mounts]
-  source="storage_vol"
+  source="cope_with_storage_vol"
   destination="/var/www/html/storage"
